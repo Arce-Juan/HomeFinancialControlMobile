@@ -11,7 +11,7 @@ namespace HomeFinancialControl.Infraestructure.Context
         public DbSet<Concept> Concepts { get; set; }
         public DbSet<Movement> Movements { get; set; }
 
-        private readonly string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HomeFinancialControl_Database_1.db3");
+        private readonly string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HomeFinancialControl_Database_2.db3");
 
         public MyDbContext()
         {
@@ -20,23 +20,24 @@ namespace HomeFinancialControl.Infraestructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Config Persona
+            //Config Concept
             modelBuilder.Entity<Concept>()
                         .HasKey(v => v.Id);
             modelBuilder.Entity<Concept>()
                         .Property(v => v.Name)
                         .IsRequired();
             modelBuilder.Entity<Concept>()
-                        .HasIndex(m => m.Category);
+                        .Property(m => m.Category)
+                        .IsRequired();
+            modelBuilder.Entity<Concept>()
+                        .Property(m => m.ConceptType)
+                        .IsRequired();
             modelBuilder.Entity<Concept>()
                         .ToTable("Concepts");
 
             //Config Movement
             modelBuilder.Entity<Movement>()
                         .HasKey(v => v.Id);
-            modelBuilder.Entity<Movement>()
-                        .Property(v => v.MovementType)
-                        .IsRequired();
             modelBuilder.Entity<Movement>()
                         .Property(v => v.Date)
                         .IsRequired();

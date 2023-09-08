@@ -7,7 +7,6 @@ namespace HomeFinancialControl.Domain.Entities
         public int Id { get; set; }
         public int ConceptId { get; set; }
         public Concept Concept { get; set; }
-        public MovementType MovementType { get; set; }
         public DateTime Date { get; set; }
         public double Amount { get; set; }
     }

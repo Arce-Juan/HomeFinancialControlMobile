@@ -4,6 +4,15 @@
              x:Class="HomeFinancialControl.Presentation.Views.HomePage">
     <ContentPage.Content>
         <StackLayout>
+            <Button Text="Conceptos"
+                Clicked="ConceptButtonClicked"
+                HeightRequest="80"
+                WidthRequest="80">
+                <Button.ImageSource>
+                    <FileImageSource File="inmigracion.png" />
+                </Button.ImageSource>
+            </Button>
+            
             <Button Text="Movimientos"
                 Clicked="MovementButtonClicked"
                 HeightRequest="80"

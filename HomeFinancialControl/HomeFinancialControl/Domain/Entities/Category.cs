@@ -2,20 +2,20 @@
 {
     public enum Category
     {
-        CREDITOS,
-        ESTETICA,
-        ENTRETENIMIENTO,
-        GUSTOS,
-        HOGAR,
-        IMPUESTO,
-        INVERSIONES,
-        SALUD,
-        OBLIGRACIONES,
-        OCIO,
-        VIVERES,
-        OTROS,
-        TERCEROS,
-        AHORROS,
-        ACREDITACIONES
+        Creditos,
+        Estetica,
+        Entretenimientos,
+        Gustos,
+        Hogar,
+        Impuestos,
+        Inversiones,
+        Salud,
+        Obligaciones,
+        Ocio,
+        Viveres,
+        Otros,
+        Terceros,
+        Ahorros,
+        Acreditaciones
     }
 }

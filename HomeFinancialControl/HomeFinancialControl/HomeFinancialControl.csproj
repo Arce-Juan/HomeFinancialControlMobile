@@ -18,17 +18,25 @@
 
   <ItemGroup>
     <Folder Include="Presentation\Helpers\" />
-    <Folder Include="Presentation\ViewModels\" />
     <Folder Include="Presentation\Resources\" />
     <Folder Include="Presentation\Utilities\ExportedData\" />
     <Folder Include="Presentation\Utilities\Validators\" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Presentation\Views\Concepts\AddConcept.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Presentation\Views\Concepts\ConceptList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Presentation\Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Presentation\Views\Movements.xaml">
+    <EmbeddedResource Update="Presentation\Views\Movements\AddMovement.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Presentation\Views\Movements\MovementList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
