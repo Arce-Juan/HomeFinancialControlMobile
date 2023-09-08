@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeFinancialControl.Presentation.Views.Movements.MovementList">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+            <Button Text="Nuevo" Clicked="AddMovement_Clicked"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ListViewStyle" TargetType="ListView">
+                <Setter Property="BackgroundColor" Value="#F6F6F6" />
+                <Setter Property="SeparatorVisibility" Value="None" />
+                <Setter Property="HasUnevenRows" Value="True" />
+            </Style>
+            <Style x:Key="RowStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="#333333" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="AmountStyle" TargetType="Label" BasedOn="{StaticResource RowStyle}">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Style.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding ConceptType}" Value="EGRESO">
+                        <Setter Property="TextColor" Value="Red" />
+                        <Setter Property="FontSize" Value="13" />
+                        <Setter Property="FontAttributes" Value="Bold" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Text="Del:" FontSize="12"  VerticalOptions="Center"/>
+                <DatePicker Grid.Column="1" x:Name="pickerStartDate" FontSize="15" Format="dd/MM/yyyy" />
+                <Label Grid.Column="2" Text="Al:" FontSize="12"  VerticalOptions="Center" />
+                <DatePicker Grid.Column="3" x:Name="pickerEndDate" FontSize="15" Format="dd/MM/yyyy" />
+                <Button Grid.Column="4" Text="Buscar" Clicked="SearchByDates_Clicked" ></Button>
+            </Grid>
+            <ListView ItemsSource="{Binding Model.Movements}"
+                      Style="{StaticResource ListViewStyle}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame OutlineColor="Black" HasShadow="False">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*" />
+                                        <ColumnDefinition Width="3*" />
+                                        <ColumnDefinition Width="2*" />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Label Grid.Column="0" Text="{Binding ConceptName}" Style="{StaticResource RowStyle}"  />
+                                    <Label Grid.Column="1" Text="{Binding Date}" Style="{StaticResource RowStyle}" HorizontalTextAlignment="End" />
+                                    <Label Grid.Column="2" Text="{Binding Amount}"  Style="{StaticResource AmountStyle}" HorizontalTextAlignment="End" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <StackLayout Orientation="Horizontal" BackgroundColor="Beige">
+                <Label Text="Entradas del día:" Style="{StaticResource RowStyle}" />
+                <Label Text="{Binding Model.TotalRevenues}" Style="{StaticResource AmountStyle}" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" BackgroundColor="Beige">
+                <Label Text="Salidas del día:" Style="{StaticResource RowStyle}" />
+                <Label Text="{Binding Model.TotalExpenses}" Style="{StaticResource AmountStyle}" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Total:" Style="{StaticResource RowStyle}" />
+                <Label Text="{Binding Model.Total}" Style="{StaticResource AmountStyle}" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
