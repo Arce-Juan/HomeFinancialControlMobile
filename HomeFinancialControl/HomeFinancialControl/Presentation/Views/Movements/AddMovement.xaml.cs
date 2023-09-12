@@ -37,8 +37,9 @@ namespace HomeFinancialControl.Presentation.Views.Movements
             BindingContext = ViewModel;
         }
 
-        private async void AddMovement_Clicked(object sender, EventArgs e)
+        private void AddMovement_Clicked(object sender, EventArgs e)
         {
+            /*
             try
             {
                 if (!double.TryParse(AmountEntry.Text, out double amount) && ConceptPicker.SelectedItem == null)
@@ -62,6 +63,7 @@ namespace HomeFinancialControl.Presentation.Views.Movements
             {
                 await DisplayAlert("Error", "Revise que todos los datos esten cargados", "OK");
             }
+            */
         }
     }
 }

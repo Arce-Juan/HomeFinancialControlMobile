@@ -6,9 +6,9 @@
     <ContentPage.Content>
         <StackLayout Padding="15">
             <Label Text="Agregar Nuevo Concepto" FontSize="20" HorizontalOptions="Center" Margin="0,10,0,20" />
-
+            
             <Entry Placeholder="Nombre del Concepto" x:Name="ConceptNameEntry" />
-
+            
             <Picker Title="Seleccione una Categoría" x:Name="CategoryPicker" ItemsSource="{Binding Categories}" />
             <Picker Title="Seleccione un Tipo de Concepto" x:Name="ConceptTypePicker" ItemsSource="{Binding ConceptTypes}" />
             

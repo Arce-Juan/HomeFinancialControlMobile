@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HomeFinancialControl.Presentation.Utilities.Controls"
              x:Class="HomeFinancialControl.Presentation.Views.Movements.AddMovement">
     <ContentPage.Content>
         <StackLayout Padding="15">
             <Label Text="Agregar Nuevo Movimiento" FontSize="20" HorizontalOptions="Center" Margin="0,10,0,20" />
 
-            <Picker Title="Seleccione un Concepto" x:Name="ConceptPicker" ItemsSource="{Binding ConceptNames}" />
+            <local:AutoSuggestBox x:Name="ConceptAutoSuggestBox" />
+
             <Entry Placeholder="Monto" x:Name="AmountEntry" Keyboard="Numeric" />
             <DatePicker x:Name="MovementDatePicker" Format="dd/MM/yyyy"/>
 

@@ -28,6 +28,14 @@ namespace HomeFinancialControl.Domain.Services.Concepts
             return concept;
         }
 
+        public async Task<List<Concept>> GetConceptsByNameAsync(string searchName)
+        {
+            var concepts = await GetAllConceptAsync();
+            return concepts
+                .Where(c => c.Name.ToLower().Contains(searchName.ToLower()))
+                .ToList();
+        }
+
         public async Task AddConceptAsync(Concept concept)
         {
             await _conceptRepository.AddAsync(concept);
