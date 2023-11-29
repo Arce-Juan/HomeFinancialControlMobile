@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Presentation\Helpers\" />
     <Folder Include="Presentation\Resources\" />
     <Folder Include="Presentation\Utilities\ExportedData\" />
     <Folder Include="Presentation\Utilities\Validators\" />

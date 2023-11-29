@@ -28,6 +28,12 @@ namespace HomeFinancialControl.Domain.Services.Concepts
             return concept;
         }
 
+        public async Task<Concept> GetConceptByNameAsync(string name)
+        {
+            var concepts = await GetAllConceptAsync();
+            return concepts.FirstOrDefault(c => c.Name == name);
+        }
+
         public async Task<List<Concept>> GetConceptsByNameAsync(string searchName)
         {
             var concepts = await GetAllConceptAsync();

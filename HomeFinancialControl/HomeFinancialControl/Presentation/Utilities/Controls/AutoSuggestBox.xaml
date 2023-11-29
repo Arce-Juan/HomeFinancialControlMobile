@@ -1,22 +1,42 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HomeFinancialControl.Presentation.Utilities.Controls.AutoSuggestBox">
     <ContentView.Content>
-        <StackLayout>
-            <Entry x:Name="searchEntry"
-                   Placeholder="Buscar..."
-                   TextChanged="SearchEntry_TextChangedAsync" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*" />
+                <ColumnDefinition Width="20*" />
+            </Grid.ColumnDefinitions>
 
-            <ListView x:Name="suggestionsListView"
-                      IsVisible="False"
-                      ItemTapped="SuggestionsListView_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+            <StackLayout Grid.Column="0" VerticalOptions="Start">
+                <Entry x:Name="searchEntry"
+                       Placeholder="Escribe el nombre del Concepto..."
+                       TextChanged="SearchEntry_TextChangedAsync" />
+
+                <ListView x:Name="suggestionsListView"
+                          IsVisible="False"
+                          ItemTapped="SuggestionsListView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <Image x:Name="clearButton"
+                   Source="delete.jpg"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   HorizontalOptions="End"
+                   HeightRequest="20"
+                   WidthRequest="20"
+                   IsVisible="false">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ClearButton_Tapped2" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
     </ContentView.Content>
 </ContentView>

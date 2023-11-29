@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HomeFinancialControl.Presentation.Views.Concepts.ConceptList">
+             x:Class="HomeFinancialControl.Presentation.Views.Concepts.ConceptList"
+             BackgroundColor="{StaticResource BackgroundColor}">
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
             <Button Text="Nuevo" Clicked="AddConcept_Clicked"/>
@@ -28,7 +29,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame OutlineColor="Black" HasShadow="False">
+                            <Frame OutlineColor="Black" HasShadow="False" BackgroundColor="{StaticResource BackgroundColor}">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="3.5*" />
@@ -40,7 +41,15 @@
                                     <Label Text="{Binding Name}" Style="{StaticResource RowStyle}" Grid.Column="0" />
                                     <Label Text="{Binding Category}" Style="{StaticResource RowStyle}" Grid.Column="1" />
                                     <Label Text="{Binding ConceptType}" Style="{StaticResource RowStyle}" Grid.Column="2" />
-                                    <ImageButton Source="trash_icon.png" Clicked="DeleteConcept_Clicked" Grid.Column="3" />
+                                    
+                                    <!--
+                                        <ImageButton Source="delete.jpg" Clicked="DeleteConcept_Clicked" Grid.Column="3" HorizontalOptions="End" VerticalOptions="CenterAndExpand" Margin="0,0,10,0" HeightRequest="20" WidthRequest="20" />
+                                    -->
+                                    <ImageButton Grid.Column="3" Clicked="DeleteConcept_Clicked" HorizontalOptions="End" VerticalOptions="CenterAndExpand" Margin="0,0,10,0" HeightRequest="20" WidthRequest="20">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}" Glyph="&#xf2ed;" Color="Red" />
+                                        </ImageButton.Source>
+                                    </ImageButton>
                                 </Grid>
                             </Frame>
                         </ViewCell>

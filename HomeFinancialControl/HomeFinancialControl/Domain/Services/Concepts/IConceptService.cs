@@ -8,6 +8,7 @@ namespace HomeFinancialControl.Domain.Services.Concepts
     {
         Task<List<Concept>> GetAllConceptAsync();
         Task<Concept> GetConceptByIdAsync(int id);
+        Task<Concept> GetConceptByNameAsync(string name);
         Task<List<Concept>> GetConceptsByNameAsync(string name);
         Task AddConceptAsync(Concept concept);
         Task ModifyConceptAsync(Concept concept);

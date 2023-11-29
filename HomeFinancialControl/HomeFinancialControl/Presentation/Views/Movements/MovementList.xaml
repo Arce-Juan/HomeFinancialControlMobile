@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HomeFinancialControl.Presentation.Views.Movements.MovementList">
+             x:Class="HomeFinancialControl.Presentation.Views.Movements.MovementList"
+             BackgroundColor="{StaticResource BackgroundColor}">
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
             <Button Text="Nuevo" Clicked="AddMovement_Clicked"/>
@@ -10,7 +11,6 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="ListViewStyle" TargetType="ListView">
-                <Setter Property="BackgroundColor" Value="#F6F6F6" />
                 <Setter Property="SeparatorVisibility" Value="None" />
                 <Setter Property="HasUnevenRows" Value="True" />
             </Style>
@@ -54,7 +54,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame OutlineColor="Black" HasShadow="False">
+                            <Frame OutlineColor="Black" HasShadow="False" BackgroundColor="{StaticResource BackgroundColor}">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="5*" />

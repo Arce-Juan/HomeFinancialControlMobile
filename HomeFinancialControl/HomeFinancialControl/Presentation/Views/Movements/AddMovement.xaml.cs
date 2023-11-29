@@ -3,7 +3,6 @@ using HomeFinancialControl.Domain.Services.Concepts;
 using HomeFinancialControl.Domain.Services.Movements;
 using HomeFinancialControl.Presentation.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -37,16 +36,19 @@ namespace HomeFinancialControl.Presentation.Views.Movements
             BindingContext = ViewModel;
         }
 
-        private void AddMovement_Clicked(object sender, EventArgs e)
+        private async void AddMovement_Clicked(object sender, EventArgs e)
         {
-            /*
             try
             {
-                if (!double.TryParse(AmountEntry.Text, out double amount) && ConceptPicker.SelectedItem == null)
+                string searchEntryValue = ConceptAutoSuggestBox.SearchEntryText;
+                int conceptId = ConceptAutoSuggestBox.SelectedConceptId;
+
+                if (!double.TryParse(AmountEntry.Text, out double amount) && conceptId == 0)
                     await DisplayAlert("Error", "Revise que todos los datos esten cargados", "OK");
                 else
                 {
-                    var selectedConcept = ViewModel.Concepts[ConceptPicker.SelectedIndex];
+                    //var selectedConcept = await _conceptService.GetConceptByNameAsync(searchEntryValue);
+                    var selectedConcept = await _conceptService.GetConceptByIdAsync(conceptId);
 
                     var movement = new Movement()
                     {
@@ -63,7 +65,6 @@ namespace HomeFinancialControl.Presentation.Views.Movements
             {
                 await DisplayAlert("Error", "Revise que todos los datos esten cargados", "OK");
             }
-            */
         }
     }
 }
